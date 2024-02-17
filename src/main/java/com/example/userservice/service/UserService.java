@@ -28,8 +28,7 @@ public class UserService extends BaseService {
     public UserInfo updateUserInfo(UserUpdateRequest userUpdateRequest) {
         UserInfo userInfo = this.getUserInfo(userUpdateRequest.getEmail());
 
-        UserInfo updatedUserInfo = userInfoMapper
-                .mapToUserInfoFromRequest(userInfo, userUpdateRequest);
+        UserInfo updatedUserInfo = this.updateUserInfo(userInfo, userUpdateRequest);
 
         UserInfo newUserInfo = userInfoRepository.save(updatedUserInfo);
 
@@ -47,5 +46,24 @@ public class UserService extends BaseService {
         newUserInfo.setUserId(userInfoCreateRequest.getUserId());
 
         return userInfoRepository.save(newUserInfo);
+    }
+
+    private UserInfo updateUserInfo(UserInfo userInfo, UserUpdateRequest request) {
+        if(request.getName() != null) {
+            userInfo.setName(request.getName());
+        }
+        if(request.getWeight() != null) {
+            userInfo.setWeight(request.getWeight());
+        }
+        if(request.getHeight() != null) {
+            userInfo.setHeight(request.getHeight());
+        }
+        if(request.getDateOfBirth() != null) {
+            userInfo.setDateOfBirth(request.getDateOfBirth());
+        }
+        if(request.getDescription() != null) {
+            userInfo.setDescription(request.getDescription());
+        }
+        return userInfo;
     }
 }

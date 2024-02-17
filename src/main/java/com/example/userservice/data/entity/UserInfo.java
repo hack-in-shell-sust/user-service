@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "users_info")
+@Table(name = "user_info")
 public class UserInfo {
 
     @Id
@@ -22,7 +22,7 @@ public class UserInfo {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", length = 255)
     private String name;
 
     @Column(name = "date_of_birth")

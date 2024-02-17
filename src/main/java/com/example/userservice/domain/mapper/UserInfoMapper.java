@@ -12,6 +12,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserInfoMapper {
 
-    UserInfo mapToUserInfoFromRequest(UserInfo userInfo, UserUpdateRequest request);
+    UserInfo updateUserInfoFromRequest(UserUpdateRequest request, @MappingTarget UserInfo userInfo);
 }
 
