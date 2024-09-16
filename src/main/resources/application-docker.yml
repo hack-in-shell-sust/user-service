@@ -37,7 +37,8 @@ spring:
 #    password: SFgIgwXeJD5QNWpFcMLDaVvL5BFANp0K
 
 server:
-  port: 8688
+  port: 8080
+
 
 cors:
-  allowed-origin: http://localhost:8080
+  allowed-origin: http://api-gateway:8080
